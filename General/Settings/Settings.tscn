@@ -1,0 +1,156 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://General/Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 0.533333, 0.533333, 0.533333, 1 )
+
+[node name="Settings" type="ScrollContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="Content"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 994.0
+margin_bottom = 570.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Search Directories" type="VBoxContainer" parent="Content/Content"]
+margin_right = 964.0
+margin_bottom = 87.0
+
+[node name="Title" type="Label" parent="Content/Content/Search Directories"]
+margin_right = 964.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 3 )
+text = "Search Directories"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="VBoxContainer" parent="Content/Content/Search Directories"]
+margin_top = 43.0
+margin_right = 964.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Content/Content/Search Directories"]
+margin_top = 47.0
+margin_right = 964.0
+margin_bottom = 63.0
+custom_constants/separation = 16
+custom_styles/separator = SubResource( 2 )
+
+[node name="Buttons" type="HBoxContainer" parent="Content/Content/Search Directories"]
+margin_top = 67.0
+margin_right = 964.0
+margin_bottom = 87.0
+custom_constants/separation = 8
+alignment = 2
+
+[node name="Add New" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 878.0
+margin_right = 915.0
+margin_bottom = 20.0
+text = "Add"
+
+[node name="Save" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 923.0
+margin_right = 964.0
+margin_bottom = 20.0
+text = "Save"
+
+[node name="User Interface" type="VBoxContainer" parent="Content/Content"]
+margin_top = 91.0
+margin_right = 964.0
+margin_bottom = 150.0
+
+[node name="Title" type="Label" parent="Content/Content/User Interface"]
+margin_right = 964.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "User Interface"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row" type="HBoxContainer" parent="Content/Content/User Interface"]
+margin_top = 35.0
+margin_right = 964.0
+margin_bottom = 59.0
+
+[node name="Label" type="Label" parent="Content/Content/User Interface/Row"]
+margin_top = 5.0
+margin_right = 124.0
+margin_bottom = 19.0
+text = "Maximum Columns"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/User Interface/Row"]
+margin_left = 128.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Max Columns" type="SpinBox" parent="Content/Content/User Interface/Row/HBoxContainer"]
+margin_left = 762.0
+margin_right = 836.0
+margin_bottom = 24.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="Content"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 994.0
+margin_bottom = 570.0
+custom_colors/files_disabled = Color( 0, 0, 0, 0 )
+custom_colors/file_icon_modulate = Color( 0, 0, 0, 0 )
+window_title = "Open a Directory"
+mode = 2
+access = 2
+current_dir = "/Users/David Noronha/Documents/Cello"
+current_path = "/Users/David Noronha/Documents/Cello/"
+
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Add New" to="Content" method="_on_Add_New_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Save" to="Content" method="_on_Save_pressed"]
+[connection signal="value_changed" from="Content/Content/User Interface/Row/HBoxContainer/Max Columns" to="Content" method="_on_Max_Columns_value_changed"]
+[connection signal="dir_selected" from="Content/FileDialog" to="Content" method="_on_FileDialog_dir_selected"]
