@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
+"base": "Button",
+"class": "AlbumTrack",
+"language": "GDScript",
+"path": "res://General/Playlist/Track.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"AlbumTrack": ""
 }
 
 [application]
@@ -24,9 +24,17 @@ config/name="Cello"
 run/main_scene="res://UI.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Assets/Global.gd"
+
+[debug]
+
+settings/fps/force_fps=25
+
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [physics]
 

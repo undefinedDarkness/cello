@@ -27,6 +27,6 @@ func _draw():
 	var radius = 6
 	# This draws a circle that isnt anti aliased :(((
 	if active:
-		draw_circle(Vector2(offset, radius+4), radius, Color.white)
+		draw_circle(Vector2(offset, radius+4), radius, Color.ghostwhite)
 	else:
-		draw_circle_outline(Vector2(offset, radius+4), radius, Color.white)
+		draw_circle_outline(Vector2(offset, radius+4), radius, Color.ghostwhite)

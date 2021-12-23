@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/album-default.jpg-4ac486a3851e530c0c477d4bdb68338e.image"
+
+[deps]
+
+source_file="res://Assets/album-default.jpg"
+dest_files=[ "res://.import/album-default.jpg-4ac486a3851e530c0c477d4bdb68338e.image" ]
+
+[params]
+

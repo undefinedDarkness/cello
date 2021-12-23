@@ -9,8 +9,6 @@ func _switch_tab(tab_no: int):
 		i+=1
 
 func _ready():
-	$Tabs/Playlist/MarginContainer/List.append_item("res://Assets/test.mp3")
-	
 	var i = 0
 	for child in $"Sidebar/Contents/VBoxContainer/Tab Switcher".get_children():
 		child.connect("pressed", self, "_switch_tab", [ i ])

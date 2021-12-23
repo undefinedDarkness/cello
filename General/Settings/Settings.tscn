@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://General/Settings/Settings.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/NotoSans-Bold.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -17,6 +17,7 @@ color = Color( 0.533333, 0.533333, 0.533333, 1 )
 [node name="Settings" type="ScrollContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,7 +31,6 @@ custom_constants/margin_right = 30
 custom_constants/margin_top = 30
 custom_constants/margin_left = 30
 custom_constants/margin_bottom = 30
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,11 +46,11 @@ __meta__ = {
 
 [node name="Search Directories" type="VBoxContainer" parent="Content/Content"]
 margin_right = 964.0
-margin_bottom = 87.0
+margin_bottom = 91.0
 
 [node name="Title" type="Label" parent="Content/Content/Search Directories"]
 margin_right = 964.0
-margin_bottom = 39.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 3 )
@@ -60,9 +60,9 @@ __meta__ = {
 }
 
 [node name="Items" type="VBoxContainer" parent="Content/Content/Search Directories"]
-margin_top = 43.0
+margin_top = 47.0
 margin_right = 964.0
-margin_bottom = 43.0
+margin_bottom = 47.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -70,18 +70,24 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="Content/Content/Search Directories"]
-margin_top = 47.0
+margin_top = 51.0
 margin_right = 964.0
-margin_bottom = 63.0
+margin_bottom = 67.0
 custom_constants/separation = 16
 custom_styles/separator = SubResource( 2 )
 
 [node name="Buttons" type="HBoxContainer" parent="Content/Content/Search Directories"]
-margin_top = 67.0
+margin_top = 71.0
 margin_right = 964.0
-margin_bottom = 87.0
+margin_bottom = 91.0
 custom_constants/separation = 8
 alignment = 2
+
+[node name="Force Reload" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 776.0
+margin_right = 870.0
+margin_bottom = 20.0
+text = "Force Reload"
 
 [node name="Add New" type="Button" parent="Content/Content/Search Directories/Buttons"]
 margin_left = 878.0
@@ -95,47 +101,95 @@ margin_right = 964.0
 margin_bottom = 20.0
 text = "Save"
 
-[node name="User Interface" type="VBoxContainer" parent="Content/Content"]
-margin_top = 91.0
+[node name="Visualizer" type="VBoxContainer" parent="Content/Content"]
+margin_top = 95.0
 margin_right = 964.0
-margin_bottom = 150.0
+margin_bottom = 210.0
 
-[node name="Title" type="Label" parent="Content/Content/User Interface"]
+[node name="Title" type="Label" parent="Content/Content/Visualizer"]
 margin_right = 964.0
-margin_bottom = 31.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
-text = "User Interface"
+text = "Visualizer"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Row" type="HBoxContainer" parent="Content/Content/User Interface"]
-margin_top = 35.0
+[node name="Row" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 39.0
 margin_right = 964.0
-margin_bottom = 59.0
+margin_bottom = 63.0
 
-[node name="Label" type="Label" parent="Content/Content/User Interface/Row"]
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row"]
 margin_top = 5.0
-margin_right = 124.0
+margin_right = 56.0
 margin_bottom = 19.0
-text = "Maximum Columns"
+text = "Columns"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/User Interface/Row"]
-margin_left = 128.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row"]
+margin_left = 60.0
 margin_right = 964.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="Max Columns" type="SpinBox" parent="Content/Content/User Interface/Row/HBoxContainer"]
-margin_left = 762.0
-margin_right = 836.0
+[node name="Columns" type="SpinBox" parent="Content/Content/Visualizer/Row/HBoxContainer"]
+margin_left = 830.0
+margin_right = 904.0
 margin_bottom = 24.0
 rounded = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Row3" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 67.0
+margin_right = 964.0
+margin_bottom = 91.0
+
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row3"]
+margin_top = 5.0
+margin_right = 168.0
+margin_bottom = 19.0
+text = "Spacing Between Columns"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row3"]
+margin_left = 172.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Spacing" type="SpinBox" parent="Content/Content/Visualizer/Row3/HBoxContainer"]
+margin_left = 718.0
+margin_right = 792.0
+margin_bottom = 24.0
+rounded = true
+
+[node name="Row2" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 95.0
+margin_right = 964.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row2"]
+margin_top = 3.0
+margin_right = 33.0
+margin_bottom = 17.0
+text = "Color"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row2"]
+margin_left = 37.0
+margin_right = 964.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Color" type="ColorPickerButton" parent="Content/Content/Visualizer/Row2/HBoxContainer"]
+margin_left = 853.0
+margin_right = 927.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 74, 0 )
 
 [node name="FileDialog" type="FileDialog" parent="Content"]
 margin_left = 30.0
@@ -150,7 +204,10 @@ access = 2
 current_dir = "/Users/David Noronha/Documents/Cello"
 current_path = "/Users/David Noronha/Documents/Cello/"
 
-[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Add New" to="Content" method="_on_Add_New_pressed"]
-[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Save" to="Content" method="_on_Save_pressed"]
-[connection signal="value_changed" from="Content/Content/User Interface/Row/HBoxContainer/Max Columns" to="Content" method="_on_Max_Columns_value_changed"]
-[connection signal="dir_selected" from="Content/FileDialog" to="Content" method="_on_FileDialog_dir_selected"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Force Reload" to="." method="_on_Force_Reload_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Add New" to="." method="_on_Add_New_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Save" to="." method="_on_Save_pressed"]
+[connection signal="value_changed" from="Content/Content/Visualizer/Row/HBoxContainer/Columns" to="." method="_on_Max_Columns_value_changed"]
+[connection signal="value_changed" from="Content/Content/Visualizer/Row3/HBoxContainer/Spacing" to="." method="_on_Spacing_value_changed"]
+[connection signal="color_changed" from="Content/Content/Visualizer/Row2/HBoxContainer/Color" to="." method="_on_Color_color_changed"]
+[connection signal="dir_selected" from="Content/FileDialog" to="." method="_on_FileDialog_dir_selected"]
