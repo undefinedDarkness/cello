@@ -40,13 +40,14 @@ margin_left = 30.0
 margin_top = 30.0
 margin_right = 994.0
 margin_bottom = 570.0
+custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Search Directories" type="VBoxContainer" parent="Content/Content"]
 margin_right = 964.0
-margin_bottom = 91.0
+margin_bottom = 119.0
 
 [node name="Title" type="Label" parent="Content/Content/Search Directories"]
 margin_right = 964.0
@@ -83,28 +84,60 @@ margin_bottom = 91.0
 custom_constants/separation = 8
 alignment = 2
 
-[node name="Force Reload" type="Button" parent="Content/Content/Search Directories/Buttons"]
-margin_left = 776.0
-margin_right = 870.0
+[node name="Button2" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 648.0
+margin_right = 756.0
 margin_bottom = 20.0
-text = "Force Reload"
+text = "Create Mixtape"
+
+[node name="Force Reload" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 764.0
+margin_right = 862.0
+margin_bottom = 20.0
+text = "勒 Force Reload"
 
 [node name="Add New" type="Button" parent="Content/Content/Search Directories/Buttons"]
-margin_left = 878.0
-margin_right = 915.0
+margin_left = 870.0
+margin_right = 911.0
 margin_bottom = 20.0
-text = "Add"
+text = "樂 Add"
 
 [node name="Save" type="Button" parent="Content/Content/Search Directories/Buttons"]
-margin_left = 923.0
+margin_left = 919.0
 margin_right = 964.0
 margin_bottom = 20.0
-text = "Save"
+text = " Save"
 
-[node name="Visualizer" type="VBoxContainer" parent="Content/Content"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Search Directories"]
 margin_top = 95.0
 margin_right = 964.0
-margin_bottom = 210.0
+margin_bottom = 119.0
+
+[node name="Label" type="Label" parent="Content/Content/Search Directories/HBoxContainer"]
+margin_top = 5.0
+margin_right = 149.0
+margin_bottom = 19.0
+text = "Playlists Save Directory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Search Directories/HBoxContainer"]
+margin_left = 153.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+alignment = 2
+
+[node name="PlaylistSaveDir" type="LineEdit" parent="Content/Content/Search Directories/HBoxContainer/HBoxContainer"]
+margin_left = 753.0
+margin_right = 811.0
+margin_bottom = 24.0
+size_flags_stretch_ratio = 0.1
+expand_to_text_length = true
+
+[node name="Visualizer" type="VBoxContainer" parent="Content/Content"]
+margin_top = 135.0
+margin_right = 964.0
+margin_bottom = 250.0
 
 [node name="Title" type="Label" parent="Content/Content/Visualizer"]
 margin_right = 964.0
@@ -191,6 +224,42 @@ margin_right = 927.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 74, 0 )
 
+[node name="Player" type="VBoxContainer" parent="Content/Content"]
+margin_top = 266.0
+margin_right = 964.0
+margin_bottom = 321.0
+
+[node name="Title2" type="Label" parent="Content/Content/Player"]
+margin_right = 964.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row" type="HBoxContainer" parent="Content/Content/Player"]
+margin_top = 39.0
+margin_right = 964.0
+margin_bottom = 55.0
+
+[node name="Label" type="Label" parent="Content/Content/Player/Row"]
+margin_top = 1.0
+margin_right = 738.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="Content/Content/Player/Row"]
+margin_left = 742.0
+margin_right = 964.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+max_value = 80.0
+rounded = true
+
 [node name="FileDialog" type="FileDialog" parent="Content"]
 margin_left = 30.0
 margin_top = 30.0
@@ -201,13 +270,17 @@ custom_colors/file_icon_modulate = Color( 0, 0, 0, 0 )
 window_title = "Open a Directory"
 mode = 2
 access = 2
+show_hidden_files = true
 current_dir = "/Users/David Noronha/Documents/Cello"
 current_path = "/Users/David Noronha/Documents/Cello/"
 
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Content/Content/Search Directories/Buttons/Force Reload" to="." method="_on_Force_Reload_pressed"]
 [connection signal="pressed" from="Content/Content/Search Directories/Buttons/Add New" to="." method="_on_Add_New_pressed"]
 [connection signal="pressed" from="Content/Content/Search Directories/Buttons/Save" to="." method="_on_Save_pressed"]
+[connection signal="text_entered" from="Content/Content/Search Directories/HBoxContainer/HBoxContainer/PlaylistSaveDir" to="." method="_on_PlaylistSaveDir_text_entered"]
 [connection signal="value_changed" from="Content/Content/Visualizer/Row/HBoxContainer/Columns" to="." method="_on_Max_Columns_value_changed"]
 [connection signal="value_changed" from="Content/Content/Visualizer/Row3/HBoxContainer/Spacing" to="." method="_on_Spacing_value_changed"]
 [connection signal="color_changed" from="Content/Content/Visualizer/Row2/HBoxContainer/Color" to="." method="_on_Color_color_changed"]
+[connection signal="value_changed" from="Content/Content/Player/Row/Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="dir_selected" from="Content/FileDialog" to="." method="_on_FileDialog_dir_selected"]

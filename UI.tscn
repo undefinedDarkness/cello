@@ -6,7 +6,7 @@
 [ext_resource path="res://General/Settings/Settings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://General/Visualizer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Noto Sans Regular Nerd Font Complete.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://General/Playlist/Playlist.gd" type="Script" id=8]
+[ext_resource path="res://General/Library/Index.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=3]
 use_filter = true
@@ -77,29 +77,29 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Button" parent="Sidebar/Contents/VBoxContainer/Tab Switcher" instance=ExtResource( 3 )]
-margin_left = 37.0
-margin_right = 49.0
+margin_left = 14.0
+margin_right = 41.0
 margin_bottom = 29.0
 hint_tooltip = "Playlists"
-size_flags_horizontal = 1
 size_flags_vertical = 0
+text = ""
 active = true
 
 [node name="Button2" parent="Sidebar/Contents/VBoxContainer/Tab Switcher" instance=ExtResource( 3 )]
-margin_left = 69.0
-margin_right = 81.0
+margin_left = 61.0
+margin_right = 88.0
 margin_bottom = 29.0
 hint_tooltip = "Visualizer"
-size_flags_horizontal = 1
 size_flags_vertical = 0
+text = ""
 
 [node name="Button3" parent="Sidebar/Contents/VBoxContainer/Tab Switcher" instance=ExtResource( 3 )]
-margin_left = 101.0
-margin_right = 113.0
+margin_left = 108.0
+margin_right = 135.0
 margin_bottom = 29.0
 hint_tooltip = "Settings"
-size_flags_horizontal = 1
 size_flags_vertical = 0
+text = ""
 
 [node name="Tabs" type="TabContainer" parent="."]
 margin_left = 210.0
@@ -118,25 +118,22 @@ anchor_bottom = 1.0
 scroll_horizontal_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Tabs/Playlist"]
-margin_right = 814.0
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-custom_constants/margin_left = 30
-custom_constants/margin_bottom = 30
+margin_right = 32.0
+margin_bottom = 32.0
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
 
 [node name="List" type="GridContainer" parent="Tabs/Playlist/MarginContainer"]
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 784.0
-margin_bottom = 570.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 script = ExtResource( 8 )
+size_n = NodePath("../../..")
 
 [node name="Visualizer" parent="Tabs" instance=ExtResource( 5 )]
 visible = false
@@ -146,4 +143,6 @@ size_flags_vertical = 3
 [node name="Settings" parent="Tabs" instance=ExtResource( 4 )]
 visible = false
 Visualizer = NodePath("../Visualizer")
+TabParent = NodePath("..")
+Sidebar = NodePath("../../Sidebar")
 Playlists = NodePath("../Playlist/MarginContainer/List")
