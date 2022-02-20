@@ -1,0 +1,314 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://General/Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Assets/NotoSans-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 0.533333, 0.533333, 0.533333, 1 )
+
+[node name="Settings" type="ScrollContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="Content"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 994.0
+margin_bottom = 570.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Search Directories" type="VBoxContainer" parent="Content/Content"]
+margin_right = 964.0
+margin_bottom = 119.0
+
+[node name="Title" type="Label" parent="Content/Content/Search Directories"]
+margin_right = 964.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 3 )
+text = "Search Directories"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="VBoxContainer" parent="Content/Content/Search Directories"]
+margin_top = 47.0
+margin_right = 964.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Content/Content/Search Directories"]
+margin_top = 51.0
+margin_right = 964.0
+margin_bottom = 67.0
+custom_constants/separation = 16
+custom_styles/separator = SubResource( 2 )
+
+[node name="Buttons" type="HBoxContainer" parent="Content/Content/Search Directories"]
+margin_top = 71.0
+margin_right = 964.0
+margin_bottom = 91.0
+custom_constants/separation = 8
+alignment = 2
+
+[node name="Button2" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 648.0
+margin_right = 756.0
+margin_bottom = 20.0
+text = "Create Mixtape"
+
+[node name="Force Reload" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 764.0
+margin_right = 862.0
+margin_bottom = 20.0
+text = "勒 Force Reload"
+
+[node name="Add New" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 870.0
+margin_right = 911.0
+margin_bottom = 20.0
+text = "樂 Add"
+
+[node name="Save" type="Button" parent="Content/Content/Search Directories/Buttons"]
+margin_left = 919.0
+margin_right = 964.0
+margin_bottom = 20.0
+text = " Save"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Search Directories"]
+margin_top = 95.0
+margin_right = 964.0
+margin_bottom = 119.0
+
+[node name="Label" type="Label" parent="Content/Content/Search Directories/HBoxContainer"]
+margin_top = 5.0
+margin_right = 149.0
+margin_bottom = 19.0
+text = "Playlists Save Directory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Search Directories/HBoxContainer"]
+margin_left = 153.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+alignment = 2
+
+[node name="PlaylistSaveDir" type="LineEdit" parent="Content/Content/Search Directories/HBoxContainer/HBoxContainer"]
+margin_left = 753.0
+margin_right = 811.0
+margin_bottom = 24.0
+size_flags_stretch_ratio = 0.1
+expand_to_text_length = true
+
+[node name="Visualizer" type="VBoxContainer" parent="Content/Content"]
+margin_top = 135.0
+margin_right = 964.0
+margin_bottom = 250.0
+
+[node name="Title" type="Label" parent="Content/Content/Visualizer"]
+margin_right = 964.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Visualizer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 39.0
+margin_right = 964.0
+margin_bottom = 63.0
+
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row"]
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 19.0
+text = "Columns"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row"]
+margin_left = 60.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Columns" type="SpinBox" parent="Content/Content/Visualizer/Row/HBoxContainer"]
+margin_left = 830.0
+margin_right = 904.0
+margin_bottom = 24.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row3" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 67.0
+margin_right = 964.0
+margin_bottom = 91.0
+
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row3"]
+margin_top = 5.0
+margin_right = 168.0
+margin_bottom = 19.0
+text = "Spacing Between Columns"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row3"]
+margin_left = 172.0
+margin_right = 964.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Spacing" type="SpinBox" parent="Content/Content/Visualizer/Row3/HBoxContainer"]
+margin_left = 718.0
+margin_right = 792.0
+margin_bottom = 24.0
+rounded = true
+
+[node name="Row2" type="HBoxContainer" parent="Content/Content/Visualizer"]
+margin_top = 95.0
+margin_right = 964.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Content/Content/Visualizer/Row2"]
+margin_top = 3.0
+margin_right = 33.0
+margin_bottom = 17.0
+text = "Color"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Content/Visualizer/Row2"]
+margin_left = 37.0
+margin_right = 964.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Color" type="ColorPickerButton" parent="Content/Content/Visualizer/Row2/HBoxContainer"]
+margin_left = 853.0
+margin_right = 927.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 74, 0 )
+
+[node name="Player" type="VBoxContainer" parent="Content/Content"]
+margin_top = 266.0
+margin_right = 964.0
+margin_bottom = 345.0
+
+[node name="Title2" type="Label" parent="Content/Content/Player"]
+margin_right = 964.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row" type="HBoxContainer" parent="Content/Content/Player"]
+margin_top = 39.0
+margin_right = 964.0
+margin_bottom = 55.0
+
+[node name="Label" type="Label" parent="Content/Content/Player/Row"]
+margin_top = 1.0
+margin_right = 738.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="Content/Content/Player/Row"]
+margin_left = 742.0
+margin_right = 964.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+max_value = 80.0
+rounded = true
+
+[node name="About ME" type="Button" parent="Content/Content/Player"]
+margin_top = 59.0
+margin_right = 93.0
+margin_bottom = 79.0
+size_flags_horizontal = 0
+text = "About Player"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="Content"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 994.0
+margin_bottom = 570.0
+window_title = "About Me"
+dialog_text = "Cello is my own toy music player.
+It isn't really good and almost no thought has been given to making
+it actually good in day to day usage.
+
+There are also some features almost no one will use and the whole thing
+is in the Godot Game Engine because why not.
+
+Anyway, hope you like it.
+
+I have a personal blog over at https://nes.is-a.dev
+& my github profile can be found at https://github.com/undefinedDarkness
+
+- nes"
+
+[node name="FileDialog" type="FileDialog" parent="Content"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 994.0
+margin_bottom = 570.0
+custom_colors/files_disabled = Color( 0, 0, 0, 0 )
+custom_colors/file_icon_modulate = Color( 0, 0, 0, 0 )
+window_title = "Open a Directory"
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/home/portal/Downloads/cello/godot"
+current_path = "/home/portal/Downloads/cello/godot/"
+
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Force Reload" to="." method="_on_Force_Reload_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Add New" to="." method="_on_Add_New_pressed"]
+[connection signal="pressed" from="Content/Content/Search Directories/Buttons/Save" to="." method="_on_Save_pressed"]
+[connection signal="text_entered" from="Content/Content/Search Directories/HBoxContainer/HBoxContainer/PlaylistSaveDir" to="." method="_on_PlaylistSaveDir_text_entered"]
+[connection signal="value_changed" from="Content/Content/Visualizer/Row/HBoxContainer/Columns" to="." method="_on_Max_Columns_value_changed"]
+[connection signal="value_changed" from="Content/Content/Visualizer/Row3/HBoxContainer/Spacing" to="." method="_on_Spacing_value_changed"]
+[connection signal="color_changed" from="Content/Content/Visualizer/Row2/HBoxContainer/Color" to="." method="_on_Color_color_changed"]
+[connection signal="value_changed" from="Content/Content/Player/Row/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="pressed" from="Content/Content/Player/About ME" to="." method="_on_About_ME_pressed"]
+[connection signal="dir_selected" from="Content/FileDialog" to="." method="_on_FileDialog_dir_selected"]
